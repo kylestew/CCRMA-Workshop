@@ -22,8 +22,8 @@
  
  ************************************************************************/
 
-#ifndef faust_crunchySaw_h_
-#define faust_crunchySaw_h_
+#ifndef faust_faustPM_h_
+#define faust_faustPM_h_
 
 #include <string>
 #include "Arduino.h"
@@ -37,11 +37,11 @@ class MidiUI;
 class teensy_midi;
 #endif
 
-class crunchySaw : public AudioStream
+class faustPM : public AudioStream
 {
     public:
-        crunchySaw();
-        ~crunchySaw();
+        faustPM();
+        ~faustPM();
         virtual void update(void);
         void setParamValue(const std::string& path, float value);
     private:
