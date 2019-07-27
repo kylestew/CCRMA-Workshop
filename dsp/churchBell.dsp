@@ -5,8 +5,9 @@ import("stdfaust.lib");
  * strikePosition - 5 strike positions on bell
  * holdLength - t60 decay time
 */
-bell = pm.churchBellModel(12,strikePosition,holdLength,1,2.5)*0.5
+bell = _*gainIn : fi.lowpass(3, 800) : pm.churchBellModel(12,strikePosition,holdLength,1,2.5)*0.5
 with {
+    gainIn = nentry("gainIn", 0.2, 0, 1, 0.001);
     strikePosition = nentry("strikePosition", 0,0,4,1);
     holdLength = nentry("holdLength", 40,1,400,0.1);
 };
@@ -21,12 +22,15 @@ with {
 wind = pm.fluteModel(tubeLength, mouthPosition, pressure)*0.5
 with {
     pressure = hslider("pressure", 0, 0, 2, 0.0001);
-    tubeLength = hslider("tubeLength", 0, 0, 2, 0.0001);
-    mouthPosition = hslider("mouthPosition", 0.5, 0, 1, 0.0001);
+   tubeLength = hslider("tubeLength", 0, 0, 2, 0.0001);
+   mouthPosition = hslider("mouthPosition", 0.5, 0, 1, 0.0001);
 };
 
 // OUTPUTS
-bellOut = ba.pulse(500000) : bell;
+bellOut = bell;
 windOut = wind*0.5;
 
-process = windOut+bellOut <: dm.freeverb_demo;
+// process = windOut+bellOut;
+process = button("gate") : en.ar(0.0005, 0.005) : bellOut;
+//ba.impulsify : bellOut;
+// process = windOut;
