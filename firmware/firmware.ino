@@ -104,14 +104,4 @@ void loop() {
 
 
   delay(4);
-//  delay(100);
-
-  if(millis() - last_time >= 8000) {
-
-    /*
-     * Strike Position
-     * vary randomly
-     */
-    faust.setParamValue("strikePosition", (int)random(0, 5));
-  }
 }
