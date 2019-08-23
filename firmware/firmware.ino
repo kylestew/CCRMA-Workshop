@@ -99,7 +99,7 @@ void loop() {
   // RIGHT POT: Bell Hold Length
   float pot0 = analogRead(POT0);
   float holdLength = pot0 / 1024;
-  holdLength = map(holdLength, 0, 1024, 10, 300);
+  holdLength = map(holdLength, 0, 1024, 2, 300);
   faust.setParamValue("holdLength", holdLength);
 
 

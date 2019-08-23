@@ -31,3 +31,7 @@ bellOut = bell;
 windOut = wind*0.4;
 
 process = windOut+bellOut;
+
+// testing
+//process = button("gate") : bell;
+//process = windOut;
