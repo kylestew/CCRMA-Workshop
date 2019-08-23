@@ -1,9 +1,9 @@
 # CCRMA Summer 2019
 ### Embedded DSP With Faust Workshop
 
-(https://ccrma.stanford.edu/workshops/faust-embedded-19/)[class website]
+[https://ccrma.stanford.edu/workshops/faust-embedded-19/](class website)
 
-https://faust.grame.fr/experimental/
+[https://faust.grame.fr/experimental/](experimental Faust IDE)
 
 ## Idea
 
